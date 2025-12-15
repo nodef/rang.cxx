@@ -1,0 +1,23 @@
+{
+  "name": "rang.cxx",
+  "version": "3.2.0",
+  "description": "A Minimal, Header only Modern c++ library for terminal goodies; Abhinav Gauniyal (2016).",
+  "keywords": [
+    "c++",
+    "library",
+    "header-only",
+    "terminal",
+    "colors",
+    "rang"
+  ],
+  "homepage": "https://github.com/nodef/rang.cxx#readme",
+  "bugs": {
+    "url": "https://github.com/nodef/rang.cxx/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/rang.cxx.git"
+  },
+  "license": "UNLICENSED",
+  "main": "rang.h"
+}
