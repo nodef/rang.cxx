@@ -1,6 +1,6 @@
 {
   "name": "rang.cxx",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "A Minimal, Header only Modern c++ library for terminal goodies; Abhinav Gauniyal (2016).",
   "keywords": [
     "c++",
@@ -19,5 +19,9 @@
     "url": "git+https://github.com/nodef/rang.cxx.git"
   },
   "license": "UNLICENSED",
-  "main": "rang.h"
+  "author": "wolfram77@gmail.com",
+  "main": "rang.hpp",
+  "scripts": {
+    "test": "bash build.sh test"
+  }
 }

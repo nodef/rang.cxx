@@ -1,4 +1,9 @@
-# rang [![Build Status](https://travis-ci.org/agauniyal/rang.svg?branch=master)](https://travis-ci.org/agauniyal/rang) [![Build status](https://ci.appveyor.com/api/projects/status/jqpdoelli38h2a7w?svg=true)](https://ci.appveyor.com/project/agauniyal/rang) [![codecov](https://codecov.io/gh/agauniyal/rang/branch/master/graph/badge.svg)](https://codecov.io/gh/agauniyal/rang) [ ![Download](https://api.bintray.com/packages/agauniyal/rang/rang%3Arang/images/download.svg) ](https://bintray.com/agauniyal/rang/rang%3Arang/_latestVersion)
+# rang
+
+<!-- [![Build Status](https://travis-ci.org/agauniyal/rang.svg?branch=master)](https://travis-ci.org/agauniyal/rang) -->
+<!-- [![Build status](https://ci.appveyor.com/api/projects/status/jqpdoelli38h2a7w?svg=true)](https://ci.appveyor.com/project/agauniyal/rang) -->
+<!-- [![codecov](https://codecov.io/gh/agauniyal/rang/branch/master/graph/badge.svg)](https://codecov.io/gh/agauniyal/rang) -->
+<!-- [![Download](https://api.bintray.com/packages/agauniyal/rang/rang%3Arang/images/download.svg)](https://bintray.com/agauniyal/rang/rang%3Arang/_latestVersion) -->
 
 ##### Colors for your Terminal.
 
@@ -11,6 +16,7 @@
 
 This C++ library was developed by [Abhinav Gauniyal](https://github.com/agauniyal).
 
+<br>
 
 Example usage
 -------------
@@ -29,35 +35,72 @@ int main()
 }
 ```
 
+<br>
+
 Dependencies
 ------------
 *rang* only depends on [C++ standard library](http://en.cppreference.com/w/cpp/header), `unistd.h` system header on unix and `windows.h` & `io.h` system headers on windows based systems. In other words, you don't need any 3rd party dependencies.
 
+<br>
 
 Installation
 ------------
 
 Run:
-```bash
+
+```sh
 $ npm i rang.cxx
 ```
 
 And then include `rang.hpp` as follows:
+
 ```cxx
-#include "node_modules/rang.cxx/include/rang.hpp"
+// main.cxx
+
+#include "node_modules/rang.cxx/rang.hpp"
+
+int main() { /* ... */ }
+```
+
+And then compile with `clang++` or `g++` as usual.
+
+```bash
+$ clang++ main.cxx  # or, use g++
+$ g++     main.cxx
+```
+
+You may also use a simpler approach:
+
+```cxx
+// main.cxx
+#include <rang.hpp>
+
+int main() { /* ... */ }
+```
+
+If you add the path `node_modules/rang.cxx` to your compiler's include paths.
+
+```bash
+$ clang++ -I./node_modules/rang.cxx main.cxx  # or, use g++
+$ g++     -I./node_modules/rang.cxx main.cxx
 ```
 
 Or, if you use the [conan package manager](https://www.conan.io/), follow these steps:
 
 1. Add a reference to *rang* to the *requires* section of your project's `conanfile.txt` file:
 
-        [requires]
-        rang/3.1.0@rang/stable
+```bash
+[requires]
+rang/3.1.0@rang/stable
+```
 
 2. Run conan's install command:
 
-        conan install
+```bash
+conan install
+```
 
+<br>
 
 ## How to use
 
@@ -160,9 +203,14 @@ Supported attributes with their compatiblity are listed below -
 | `rang::bg::reset`     | yes   | yes |
 
 -----
+
+<br>
+
 ## My terminal is not detected/gets garbage output!
 
 Check your env variable `TERM`'s value. Then open an issue [here](https://github.com/agauniyal/rang/issues/new) and make sure to mention `TERM`'s value along with your terminal name.
+
+<br>
 
 ## Redirecting `cout`/`cerr`/`clog` rdbuf?
 
@@ -172,6 +220,6 @@ Rang doesn't interfere if you try to redirect `cout`/`cerr`/`clog` to somewhere 
 <br>
 
 
+[![SRC](https://img.shields.io/badge/src-repo-green?logo=Org)](https://github.com/agauniyal/rang)
 [![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
 ![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/rang.cxx)
-[![SRC](https://img.shields.io/badge/src-repo-green?logo=Org)](https://github.com/agauniyal/rang)

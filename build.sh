@@ -1,31 +1,35 @@
 #!/usr/bin/env bash
-URL="https://excellmedia.dl.sourceforge.net/project/asio/asio/1.36.0%20%28Stable%29/boost_asio_1_36_0.zip?viasf=1"
-ZIP="${URL##*/}"
-ZIP="${ZIP%%\?*}"
-DIR="${ZIP%.zip}"
-mkdir -p .build
-cd .build
+# Fetch the latest version of the library
+fetch() {
+if [ -f "rang.hpp" ]; then return; fi
+URL="https://github.com/agauniyal/rang/raw/refs/heads/master/include/rang.hpp"
+FILE="rang.hpp"
 
 # Download the release
-if [ ! -f "$ZIP" ]; then
-  echo "Downloading $ZIP from $URL ..."
-  curl -L "$URL" -o "$ZIP"
+if [ ! -f "$FILE" ]; then
+  echo "Downloading $FILE from $URL ..."
+  curl -L "$URL" -o "$FILE"
   echo ""
 fi
+}
 
-# Unzip the release
-if [ ! -d "$DIR" ]; then
-  echo "Unzipping $ZIP to .build/$DIR ..."
-  cp "$ZIP" "$ZIP.bak"
-  unzip -q "$ZIP"
-  rm "$ZIP"
-  mv "$ZIP.bak" "$ZIP"
-  echo ""
-fi
 
-# Copy the libs to the package directory
-echo "Copying libs to boost/ ..."
-rm -rf ../boost
-mkdir -p ../boost
-cp -rf "$DIR/boost"/* ../boost/
-echo ""
+# Test the project
+test() {
+echo "Running 01-intro-to-colors.cxx ..."
+clang -I. -o 01.exe examples/01-intro-to-colors.cxx        && ./01.exe && echo -e "\n"
+echo "Running 02-colorful-menu.cxx ..."
+clang -I. -o 02.exe examples/02-colorful-menu.cxx          && ./02.exe && echo -e "\n"
+echo "Running 03-logging-system.cxx ..."
+clang -I. -o 03.exe examples/03-logging-system.cxx         && ./03.exe && echo -e "\n"
+echo "Running 04-terminal-progress-bar.cxx ..."
+clang -I. -o 04.exe examples/04-terminal-progress-bar.cxx  && ./04.exe && echo -e "\n"
+echo "Running 05-rainbow-banner.cxx ..."
+clang -I. -o 05.exe examples/05-rainbow-banner.cxx         && ./05.exe && echo -e "\n"
+}
+
+
+# Main script
+if [[ "$1" == "test" ]]; then test
+elif [[ "$1" == "fetch" ]]; then fetch
+else echo "Usage: $0 {fetch|test}"; fi
