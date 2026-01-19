@@ -1,6 +1,6 @@
 {
   "name": "rang.cxx",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "A Minimal, Header only Modern c++ library for terminal goodies; Abhinav Gauniyal (2016).",
   "keywords": [
     "c++",
